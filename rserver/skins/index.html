@@ -1,0 +1,17 @@
+<% extends ./base.html %>
+
+<% subskin content %>
+<div id="header"><h1><% title %></h1></div>
+<div id="body">
+<p>Enter source code for the first file here:</p>
+
+    <form action='/file/anything.js' method='post'>
+
+<textarea id='source' name='source' rows=20 cols=50>
+</textarea>
+<br />
+<input type='submit'  value='submit'  />
+	</form>
+</ul>
+<p>Thank you for using Ringo!</p>
+</div>

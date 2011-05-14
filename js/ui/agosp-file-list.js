@@ -14,6 +14,13 @@ agosp.ui.fileList = (function(){
 	var fl = {
 			load: function(listener) {
 					this.clear();
+				        $.ajax({url:'http://localhost:8080/files',
+						dataType:'jsonp',
+						succcess:function(data){
+								$.each(data,function(i){
+									_addLi(i);
+									});
+							}});
 				},
 				
 			clear: function() {
@@ -25,6 +32,7 @@ agosp.ui.fileList = (function(){
 		};
 	
 	agosp.events.add( document, agosp.events.APPLICATION_STARTED, function(){ 
+			fl.load();
 			agosp.out( "FileList module is ready" );
 		});	
 	
