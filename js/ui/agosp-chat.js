@@ -11,7 +11,10 @@ agosp.ui.chat = (function(){
 				},
 				
 			send: function() {
-
+				var msg = {'type':'msg','user':$('#user').val(),'message':$('#message').val()};
+				agosp.socket.send('msg',msg);
+				chat.add(msg);
+				
 				}
 		};
 	

@@ -25,7 +25,7 @@ agosp = this.agosp || {};
 				});		
 		
 			agosp.events.trigger( document, agosp.events.APPLICATION_STARTED );
-			//agosp.socket.connect( "192.168.0.7:8124" );
+			agosp.socket.connect( "10.1.1.133:8124" );
 			agosp.out( "Agosp started" );
 		} );
 
