@@ -8,7 +8,8 @@ agosp.socket = (function(){
 	
 	var _handleMessage = function(msg) {
 		agosp.out('handled massage');
-		agosp.ui.chat.add(msg);
+		//agosp.ui.chat.add(msg);
+		agosp.events.trigger(document,agosp.events.CHAT_MSG_RECEIVED,msg);
 		};
 		
 	var obj = {
@@ -23,11 +24,11 @@ agosp.socket = (function(){
 			agosp.out('connecting started');
 			},
 			
-		send: function(type, message) {
+		send: function(message) {
 			socket.send(message);
 			}
 	};
-	
+
 	return obj;
 	
 })();

@@ -12,13 +12,16 @@ agosp.ui.chat = (function(){
 				
 			send: function() {
 				var msg = {'type':'msg','user':$('#user').val(),'message':$('#message').val()};
-				agosp.socket.send('msg',msg);
-				chat.add(msg);
+				//agosp.socket.send('msg',msg);
+				//chat.add(msg);
+				agosp.events.trigger(document,agosp.events.CHAT_MSG_SENT,msg);
+				$('#message').val('');
 				
 				}
 		};
 	
 	agosp.events.add( document, agosp.events.CHAT_MSG_RECEIVED, chat.add.bind(chat) );
+	agosp.events.add( document, agosp.events.CHAT_MSG_SENT,     chat.add.bind(chat) );
 	
 	agosp.events.add( document, agosp.events.APPLICATION_STARTED, function(){ 
 			agosp.out( "Chat module is ready" ); 
